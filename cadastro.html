@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.7/imask.min.js"></script>
+    <title>Teste Estágio</title>
+</head>
+<body>
+    <h1>CADASTRO FORNECEDOR/PRODUTO</h1>
+
+    <!-- Seção dados do fornecedor -->
+    <div>
+        <section class="background-section">
+            <h1>Dados do fornecedor</h1>
+        </section>
+        
+        <section class="container grid grid-template-columns">
+            <div class="item">
+                <p>Razao Social</p>
+                <input type="text" id="razaoSocial">
+            </div>
+            <div class="item">
+                <p>CNPJ</p>
+                <input type="text" id="cnpj" required>
+            </div>
+            <div class="item">
+                <p>Nome Fantasia</p>
+                <input type="text" id="nomeFantasia" required>
+            </div>
+            <div class="item">
+                <p>Inscrição Estadual</p>
+                <input type="text" id="inscricaoEstadual">
+            </div>
+            <div class="item">
+                <p>CEP</p>
+                <input type="text" id="cep" style="width: 250px; display: flex; align-items: left;">
+            </div>
+            <div class="item">
+                <p>Inscrição Municipal</p>
+                <input type="text" id="inscricaoMunicipal">
+            </div>
+            <div class="item">
+                <p>Endereço</p>
+                <input type="text" id="endereco" required>
+            </div>
+            <div class="item">
+                <p>Número</p>
+                <input type="text" id="numero">
+            </div>
+        </section>
+        
+        <section class="container grid grid-template-columns-1">
+            <div class="item">
+                <p>Complemento</p>
+                <input type="text" id="complemento">
+            </div>
+        </section>
+
+        <section class="container grid grid-template-columns-3">
+            <div class="item">
+                <p>Bairro</p>
+                <input type="text" id="bairro">
+            </div>
+            <div class="item">
+                <p>Munícipio</p>
+                <input type="text" id="municipio">
+            </div>
+            <div class="item">
+                <p>Estado</p>
+                <input type="text" id="estado">
+            </div>
+        </section>
+        
+        <section class="container grid grid-template-columns-3a">
+            <div class="item">
+                <p>Nome da Pessoa de Contrato</p>
+                <input type="text" id="nomeContato" required>
+            </div>
+            <div class="item">
+                <p>Telefone</p>
+                <input type="tel" id="telefoneContato" required>
+            </div>
+            <div class="item">
+                <p>E-mail</p>
+                <input type="email" id="emailContato" required>
+            </div>
+        </section>
+    </div>
+
+    <!-- Seção produtos -->
+    <div style="background-color: #fff;">
+        <section class="background-section">
+            <h1>Produtos</h1>
+        </section>
+        <section class="grid-top" id="produtosContainer">
+            <fieldset class="fieldset-border">
+                <legend class="legend-border">Produto - 1</legend>
+                <section class="container grid grid-template-columns-2" style="border-color: #fff;">
+                    <div class="icon-column">
+                        <div>
+                            <button class="icon-button-trash" onclick="handleExcluir()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                        <div class="icon-wrapper">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                    </div>
+                    <div class="main-column">
+                        <div class="item">
+                            <p>Produto</p>
+                            <input type="text" id="descricaoProduto">
+                        </div>
+                        <section class="container grid grid-template-columns-4" style="border-color: #fff;">
+                            <div class="item">
+                                <p>UN. medida</p>
+                                <select required id="unidadeMedida">
+                                    <option value="" selected disabled hidden></option>
+                                    <option value="unidadeMedida">unidadeMedida</option>
+                                </select>
+                            </div>
+                            <div class="item">
+                                <p>QTDE. em Estoque</p>
+                                <input type="number" id="quantidadeEstoque" required>
+                            </div>
+                            <div class="item">
+                                <p>Valor Unitário</p>
+                                <input type="number" id="valorUnitario" required>
+                            </div>
+                            <div class="item">
+                                <p>Valor Total</p>
+                                <span id="valorTotal"></span>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </fieldset>
+            <button class="btn" id="addButton">Adicionar Produto</button>
+        </section>
+    </div>
+    
+    <!-- Seção anexos -->
+    <div>
+        <section class="background-section">
+            <h1>Anexos</h1>
+        </section>
+        <section class="grid">
+            <fieldset class="fieldset-border">
+                <legend class="legend-border">Itens</legend>
+                <div id="anexosContainer">
+                    
+                </div>
+            </fieldset>
+            <button class="btn" onclick="handleAttach()">Incluir Anexo</button>
+        </section>
+        <input type="file" id="fileInput" style="display: none;" onchange="handleFileChange(this)">
+        
+    </div>
+    <button class="btn-salvar" id="btnSalvarFornecedor" onclick="validateForm()">Salvar Fornecedor</button>
+    
+    </div>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
